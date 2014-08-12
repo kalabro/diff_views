@@ -33,6 +33,10 @@ class diff_views_handler_field_diff_radio extends views_handler_field {
    * Views form callback.
    */
   function views_form(&$form, &$form_state) {
+    if (count($this->view->result) < 2) {
+      return;
+    }
+
     $field_name = $this->form_element_name();
     $form_state['storage']['diff_field_name'] = $field_name;
 

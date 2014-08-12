@@ -23,6 +23,7 @@ function diff_views_form_alter(&$form, &$form_state, $form_id) {
   if (strpos($form_id, 'views_form_') !== 0) {
     return;
   }
+
   $diff_field = FALSE;
   $view = $form_state['build_info']['args'][0];
 
@@ -39,6 +40,10 @@ function diff_views_form_alter(&$form, &$form_state, $form_id) {
   unset($form['#action']);
   // Hide default buttons.
   $form['actions']['#access'] = FALSE;
+
+  if (empty($form_state['storage']['diff_field_name'] )) {
+    return;
+  }
 
   $form['diff_views_submit'] = array(
     '#type' => 'submit',
