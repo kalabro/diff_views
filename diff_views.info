@@ -2,5 +2,7 @@ name = Diff Views
 description = Select revisions for Diff comparison from Views.
 package = Views
 core = 7.x
+dependencies[] = diff
+dependencies[] = views
 
 files[] = views/diff_views_handler_field_diff_radio.inc
